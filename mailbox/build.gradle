@@ -1,0 +1,27 @@
+plugins {
+    id "com.adtran.scala-multiversion-plugin" version "1.0.30"
+}
+
+apply plugin: 'scala'
+apply plugin: 'maven'
+apply plugin: 'signing'
+
+archivesBaseName='mailbox'
+
+apply from: 'publish.gradle'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile "org.scala-lang:scala-library:%scala-version%"
+    compile(project(':envelope'))
+    compile "io.othree:dna_%%:1.0.+"
+
+    compile "com.typesafe.akka:akka-remote_%%:$akkaVersion"
+    compile "com.typesafe.akka:akka-cluster-tools_%%:$akkaVersion"
+
+    testCompile 'io.othree:a-ok_%%:1.0.+'
+    testCompile 'io.othree:akka-ok_%%:1.0.+'
+}

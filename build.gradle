@@ -1,0 +1,9 @@
+allprojects {
+    group='io.othree'
+    version = '1.0'
+
+    project.ext {
+        akkaVersion = '2.5.+'
+        akkaHttpVersion = '10.1.+'
+    }
+}

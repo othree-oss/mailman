@@ -1,0 +1,6 @@
+rootProject.name = 'mailman'
+include 'pidgeon'
+include 'composer'
+include 'postoffice'
+include 'envelope'
+include 'mailbox'

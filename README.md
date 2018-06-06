@@ -1,0 +1,1 @@
+[![Build Status](https://travis-ci.org/othree-oss/mailman.svg?branch=master)](https://travis-ci.org/othree-oss/mailman)

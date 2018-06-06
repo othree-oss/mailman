@@ -1,0 +1,29 @@
+plugins {
+    id "com.adtran.scala-multiversion-plugin" version "1.0.30"
+}
+
+apply plugin: 'scala'
+apply plugin: 'maven'
+apply plugin: 'signing'
+
+archivesBaseName='composer'
+
+apply from: 'publish.gradle'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile "org.scala-lang:scala-library:%scala-version%"
+    compile 'org.scala-lang:scala-compiler:%scala-version%'
+    compile group: 'org.scalatra.scalate', name: 'scalate-core_%%', version: '1.8.+'
+
+    compile(project(':envelope'))
+
+    compile "io.othree:dna_%%:1.+"
+    compile "io.othree:ocular_%%:1.+"
+    compile "com.typesafe.scala-logging:scala-logging_%%:3.9.+"
+
+    testCompile "io.othree:a-ok_%%:1.0.+"
+}
