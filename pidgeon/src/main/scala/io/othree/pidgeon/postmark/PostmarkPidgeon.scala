@@ -13,15 +13,13 @@ import io.othree.pidgeon.models.{Package, To}
 import io.othree.pidgeon.postmark.configuration.PostmarkConfiguration
 import io.othree.pidgeon.postmark.models.{Attachment, Email, SuccessfulEmailResponse}
 
-import scala.concurrent.Future
+import scala.concurrent.{ExecutionContext, Future}
 
 class PostmarkPidgeon(configuration: PostmarkConfiguration)
-                     (implicit actorSystem: ActorSystem)
+                     (implicit actorSystem: ActorSystem, ec: ExecutionContext)
   extends Pidgeon
     with PostmarkJsonSupport
     with LazyLogging {
-
-  import scala.concurrent.ExecutionContext.Implicits.global
 
   private implicit val actorMaterializer = ActorMaterializer()
 
